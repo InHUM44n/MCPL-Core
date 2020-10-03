@@ -1,0 +1,21 @@
+name: InHUM44n
+version: 0.0.1
+main: de.inhum44n.mcpl.main.Main
+
+commands:
+   heal:
+      description: heals the player
+   cc:
+      description: clears the chat
+   fly:
+      description: toggles fly mode
+   cl:
+      description: delete items on ground
+   rn:
+      description: rename the item in your hand.
+   al:
+      description: adds ItemLore to the Item in your hand.
+   cll:
+      description: Clears the lore for the item in your hand.
+   skull:
+      description: Gives you the head of a Player.
