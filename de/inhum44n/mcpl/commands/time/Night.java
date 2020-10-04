@@ -1,4 +1,4 @@
-package de.inhum44n.mcpl.commands;
+package de.inhum44n.mcpl.commands.time;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -6,22 +6,17 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Fly implements CommandExecutor{
+public class Night  implements CommandExecutor{
 	
-	String permission = "mcpl.fly";
+	String permission = "mcpl.time";
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (sender instanceof Player) {
 			Player p = (Player) sender;
 			if (p.hasPermission(permission)) {
-				if (!p.getAllowFlight()) {
-					p.setAllowFlight(true);
-					p.sendMessage(ChatColor.GREEN + "You can now fly.");
-				} else {
-					p.setAllowFlight(false);
-					p.sendMessage(ChatColor.GREEN + "You can't fly anymore.");
-				}
+				p.getWorld().setTime(13000);
+				p.sendMessage(ChatColor.GREEN + "Time set to " + ChatColor.DARK_GREEN + "NIGHT" + ChatColor.GREEN + ".");
 			} else {
 				p.sendMessage(ChatColor.RED + "Umm... no.");
 				p.sendMessage(ChatColor.WHITE + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
@@ -29,5 +24,4 @@ public class Fly implements CommandExecutor{
 		}
 		return false;
 	}
-	
 }

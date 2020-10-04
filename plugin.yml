@@ -1,5 +1,5 @@
 name: InHUM44n
-version: 0.0.1
+version: 0.0.2
 main: de.inhum44n.mcpl.main.Main
 
 commands:
@@ -19,3 +19,9 @@ commands:
       description: Clears the lore for the item in your hand.
    skull:
       description: Gives you the head of a Player.
+   day:
+      description: sets the time to day
+   night:
+      description: sets the time to night
+   mcpl:
+      description: configure the InHUM44n core plugin

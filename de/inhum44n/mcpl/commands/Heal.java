@@ -1,11 +1,10 @@
 package de.inhum44n.mcpl.commands;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import net.md_5.bungee.api.ChatColor;
 
 public class Heal implements CommandExecutor{
 	
