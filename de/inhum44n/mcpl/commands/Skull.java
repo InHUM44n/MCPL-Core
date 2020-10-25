@@ -10,6 +10,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
+import de.inhum44n.mcpl.Functions;
+
 public class Skull implements CommandExecutor{
 	
 	String permission = "mcpl.skull";
@@ -26,11 +28,10 @@ public class Skull implements CommandExecutor{
 					is.setItemMeta(sm);
 					p.getInventory().addItem(is);
 				} else {
-					p.sendMessage(ChatColor.DARK_RED + "No " + ChatColor.RED + "or " + ChatColor.DARK_RED + "too many " + ChatColor.RED + "arguments.");
+					Functions.sendMessage(p, ChatColor.DARK_RED + "No " + ChatColor.RED + "or " + ChatColor.DARK_RED + "too many " + ChatColor.RED + "arguments.");
 				}
 			} else {
-				p.sendMessage(ChatColor.RED + "Umm... no.");
-				p.sendMessage(ChatColor.WHITE + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
+				Functions.sendMessage(p, ChatColor.RED + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
 			}
 		}
 		return false;

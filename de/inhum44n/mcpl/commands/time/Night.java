@@ -6,6 +6,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import de.inhum44n.mcpl.Functions;
+
 public class Night  implements CommandExecutor{
 	
 	String permission = "mcpl.time";
@@ -16,10 +18,9 @@ public class Night  implements CommandExecutor{
 			Player p = (Player) sender;
 			if (p.hasPermission(permission)) {
 				p.getWorld().setTime(13000);
-				p.sendMessage(ChatColor.GREEN + "Time set to " + ChatColor.DARK_GREEN + "NIGHT" + ChatColor.GREEN + ".");
+				Functions.sendMessage(p, ChatColor.GREEN + "Time set to " + ChatColor.DARK_GREEN + "NIGHT" + ChatColor.GREEN + ".");
 			} else {
-				p.sendMessage(ChatColor.RED + "Umm... no.");
-				p.sendMessage(ChatColor.WHITE + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
+				Functions.sendMessage(p, ChatColor.RED + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
 			}
 		}
 		return false;

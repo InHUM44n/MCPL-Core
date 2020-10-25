@@ -12,6 +12,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import de.inhum44n.mcpl.Functions;
+
 public class AddLore implements CommandExecutor{
 	
 	@Override
@@ -46,16 +48,15 @@ public class AddLore implements CommandExecutor{
 						}
 						is.setItemMeta(im);
 						p.setItemInHand(is);
-						p.sendMessage(ChatColor.GREEN + "Added Item Lore: " + ChatColor.RESET + newlore + ChatColor.GREEN + ".");
+						Functions.sendMessage(p, ChatColor.GREEN + "Added Item Lore: " + ChatColor.RESET + newlore + ChatColor.GREEN + ".");
 					} else {
-						p.sendMessage(ChatColor.RED + "Please add more Arguments");
+						Functions.sendMessage(p, ChatColor.RED + "Please add more Arguments");
 					}
 				} else {
-					p.sendMessage(ChatColor.RED + "Must be holding an item.");
+					Functions.sendMessage(p, ChatColor.RED + "Must be holding an item.");
 				}
 			} else {
-				p.sendMessage(ChatColor.RED + "Umm... no.");
-				p.sendMessage(ChatColor.WHITE + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
+				Functions.sendMessage(p, ChatColor.RED + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
 			}
 		}
 		return false;

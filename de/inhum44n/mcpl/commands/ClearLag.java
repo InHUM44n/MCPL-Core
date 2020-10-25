@@ -12,6 +12,8 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 
+import de.inhum44n.mcpl.Functions;
+
 public class ClearLag implements CommandExecutor{
 	
 	String permission = "mcpl.clearlag";
@@ -31,10 +33,9 @@ public class ClearLag implements CommandExecutor{
 				        deletedItems++;
 				    }
 				}
-				Bukkit.getServer().broadcastMessage(ChatColor.DARK_GREEN + Integer.toString(deletedItems) + ChatColor.GREEN + " items have been removed from the ground");
+				Bukkit.getServer().broadcastMessage(Functions.ServerPrefix() + " " + ChatColor.DARK_GREEN + Integer.toString(deletedItems) + ChatColor.GREEN + " items have been removed from the ground");
 			} else {
-				p.sendMessage(ChatColor.RED + "Umm... no.");
-				p.sendMessage(ChatColor.WHITE + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
+				Functions.sendMessage(p, ChatColor.RED + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
 			}
 		}
 		return false;

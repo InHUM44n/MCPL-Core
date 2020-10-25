@@ -6,9 +6,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import de.inhum44n.mcpl.Functions;
+
 public class Heal implements CommandExecutor{
 	
-	String permission = "*";
+	String permission = "mcpl.heal";
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -20,8 +22,7 @@ public class Heal implements CommandExecutor{
 				p.setSaturation(20);
 				p.sendMessage(ChatColor.GREEN + "There you go.");
 			} else {
-				p.sendMessage(ChatColor.RED + "Umm... no.");
-				p.sendMessage(ChatColor.WHITE + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
+				Functions.sendMessage(p, ChatColor.RED + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
 			}
 		}
 		return false;

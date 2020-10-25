@@ -7,6 +7,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import de.inhum44n.mcpl.Functions;
+
 public class ClearChat implements CommandExecutor{
 	
 	String permission = "mcpl.clearchat";
@@ -20,11 +22,10 @@ public class ClearChat implements CommandExecutor{
 				}
 			}
 			for (Player p : Bukkit.getOnlinePlayers()) {
-				p.sendMessage(ChatColor.AQUA + "Chat Cleared by " + ChatColor.RED + sender.getName());
+				Functions.sendMessage(p, ChatColor.AQUA + "Chat Cleared by " + ChatColor.RED + sender.getName());
 			}
 		} else {
-			sender.sendMessage(ChatColor.RED + "Umm... no.");
-			sender.sendMessage(ChatColor.WHITE + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
+			Functions.sendMessage((Player) sender, ChatColor.RED + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
 		}
 		return false;
 	}

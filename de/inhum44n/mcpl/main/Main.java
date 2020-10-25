@@ -15,12 +15,24 @@ import de.inhum44n.mcpl.commands.itemactions.ClearLore;
 import de.inhum44n.mcpl.commands.itemactions.Rename;
 import de.inhum44n.mcpl.commands.time.Day;
 import de.inhum44n.mcpl.commands.time.Night;
+import de.inhum44n.mcpl.events.Drops;
 import de.inhum44n.mcpl.events.EventListener;
 import net.md_5.bungee.api.ChatColor;
 import net.minecraft.server.v1_8_R3.MinecraftServer;
 
 public class Main extends JavaPlugin{
+	
+	private static Main plugin;
+	
+	
 	public void onEnable() {
+		plugin = this;
+		
+		if (getPlugin().getConfig().getString("ServerName") == null) {
+			getPlugin().getConfig().set("ServerName", "MCPL");
+			getPlugin().saveConfig();
+		}
+		
 		MinecraftServer.getServer().setMotd(ChatColor.DARK_AQUA + "InHUM44n's " + ChatColor.AQUA + "Test Server");
 		getCommand("heal").setExecutor(new Heal());
 		getCommand("cc").setExecutor(new ClearChat());
@@ -36,5 +48,11 @@ public class Main extends JavaPlugin{
 		
 		PluginManager pm = Bukkit.getPluginManager();
 		pm.registerEvents(new EventListener(), this);
+		pm.registerEvents(new Drops(), this);
 	}
+	
+	public static Main getPlugin() {
+		return plugin;
+	}
+	
 }

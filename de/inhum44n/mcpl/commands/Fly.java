@@ -6,6 +6,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import de.inhum44n.mcpl.Functions;
+
 public class Fly implements CommandExecutor{
 	
 	String permission = "mcpl.fly";
@@ -17,14 +19,13 @@ public class Fly implements CommandExecutor{
 			if (p.hasPermission(permission)) {
 				if (!p.getAllowFlight()) {
 					p.setAllowFlight(true);
-					p.sendMessage(ChatColor.GREEN + "You can now fly.");
+					Functions.sendMessage(p, ChatColor.GREEN + "You can now fly.");
 				} else {
 					p.setAllowFlight(false);
-					p.sendMessage(ChatColor.GREEN + "You can't fly anymore.");
+					Functions.sendMessage(p, ChatColor.GREEN + "You can't fly anymore.");
 				}
 			} else {
-				p.sendMessage(ChatColor.RED + "Umm... no.");
-				p.sendMessage(ChatColor.WHITE + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
+				Functions.sendMessage(p, ChatColor.RED + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
 			}
 		}
 		return false;

@@ -9,6 +9,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import de.inhum44n.mcpl.Functions;
+
 public class Rename implements CommandExecutor{
 
 	@Override
@@ -34,16 +36,15 @@ public class Rename implements CommandExecutor{
 						im.setDisplayName(itemname);
 						is.setItemMeta(im);
 						p.setItemInHand(is);
-						p.sendMessage(ChatColor.GREEN + "The item in your hand was renamed to " + ChatColor.RESET + itemname + ChatColor.GREEN + ".");
+						Functions.sendMessage(p, ChatColor.GREEN + "The item in your hand was renamed to " + ChatColor.RESET + itemname + ChatColor.GREEN + ".");
 					} else {
-						p.sendMessage(ChatColor.RED + "Please add a name for the item");
+						Functions.sendMessage(p, ChatColor.RED + "Please add a name for the item");
 					}
 				} else {
-					p.sendMessage(ChatColor.RED + "Must be holding an item.");
+					Functions.sendMessage(p, ChatColor.RED + "Must be holding an item.");
 				}
 			} else {
-				p.sendMessage(ChatColor.RED + "Umm... no.");
-				p.sendMessage(ChatColor.WHITE + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
+				Functions.sendMessage(p, ChatColor.RED + "Missing Permission: " + ChatColor.WHITE + "\"" + ChatColor.DARK_RED + permission + ChatColor.WHITE + "\"");
 			}
 		}
 		return false;
